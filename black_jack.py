@@ -16,17 +16,17 @@ playing = True
 
 #Creating Card class with rank and suit parameters
 class Card:
-	def __init__(self, rank, suit):
+	def __init__(self, suit, rank):
 		self.rank = rank
 		self.suit = suit
 		
 #creating a method in case we need to print card rank and suit
 	def __str__(self):
-		return f"{rank} of {suit}"
+		return f"{self.rank} of {self.suit}"
 
 #creating card deck class
 
-class Deck
+class Deck:
     def __init__(self):
 #creating an empty list to append each of 52 card objects    	
     	self.deck = []
@@ -35,22 +35,25 @@ class Deck
     		for rank in ranks:
 #creating instance of each card using Card class
 #and then appending each instance to deck list
-    			self.deck.append(Card(rank, suit))
+    			self.deck.append(Card(suit, rank))
 
     def __str__(self):
     	deck_comp = ""
     	for card in self.deck:
-    		deck_comp = deck_comp "\n" + card.__str__()
-    		return "The deck has:" + deck_comp
+    		deck_comp = deck_comp + "\n" + card.__str__()
+    	return "The deck has:" + deck_comp
     
     def shuffle(self):
-    	random.shuffle(self, deck)
+    	random.shuffle(self.deck)
 
     def deal(self):
     	single_card = self.deck.pop()
     	return single_card
 
 
+test_deck = Deck()
+test_deck.shuffle()
+print(test_deck)
 
 
 
